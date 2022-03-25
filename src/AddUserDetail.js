@@ -82,15 +82,15 @@ export function AddUserDetail() {
     <form onSubmit = {formik.handleSubmit} className="add-userdetail-form">
       <TextField
         label="FirstName"
-        name="firstname"
+        name="FirstName"
         id="name"        
         type="text"
         variant="outlined"
         onChange={formik.handleChange}
-        value={formik.values.firstname}
+        value={formik.values.FirstName}
         onBlur = {formik.handleBlur}
-        error = {formik.touched.firstname && formik.errors.firstname}
-        helperText = {formik.touched.firstname && formik.errors.firstname ? formik.errors.firstname : ""}
+        error = {formik.touched.FirstName && formik.errors.FirstName}
+        helperText = {formik.touched.FirstName && formik.errors.FirstName ? formik.errors.FirstName : ""}
          // onChange={(event) => setName(event.target.value)}    
         />
               {/* <input
@@ -102,45 +102,45 @@ export function AddUserDetail() {
         type = "text"
         label="LastName"
         id = "name"
-        name="lastname"
+        name="LastName"
         variant="outlined"
         // placeholder = "Poster"
         onChange={formik.handleChange}
-        value={formik.values.lastname}
+        value={formik.values.LastName}
         onBlur = {formik.handleBlur}
-        error = {formik.touched.lastname && formik.errors.lastname}
+        error = {formik.touched.LastName && formik.errors.LastName}
         helperText = {
-          formik.touched.lastname && formik.errors.lastname ? formik.errors.lastname : ""
+          formik.touched.LastName && formik.errors.LastName ? formik.errors.LastName : ""
         }
          />
          
         
       <TextField
-        text = "text"
+        type = "email"
         label="Email"
         id="email"
         name="email"
         //placeholder = "Rating" 
         onChange={formik.handleChange}
-        value={formik.values.email}
+        value={formik.values.Email}
         onBlur = {formik.handleBlur}
         variant="outlined" 
-        error = {formik.touched.email && formik.errors.email}
-        helperText = {formik.touched.email && formik.errors.email ? formik.errors.email : ""}
+        error = {formik.touched.Email && formik.errors.Email}
+        helperText = {formik.touched.Email && formik.errors.Email ? formik.errors.Email : ""}
          />
        
       <TextField
-        type= "text"
+        type= "password"
         label="Password"
         id="password"
         name="password"
         // placeholder = "Summary"
         onChange={formik.handleChange}
-        value={formik.values.password}
+        value={formik.values.Password}
         onBlur = {formik.handleBlur}
         variant="outlined"
-        error = {formik.touched.password && formik.errors.password}
-        helperText = {formik.touched.password && formik.errors.password ? formik.errors.password : ""}
+        error = {formik.touched.Password && formik.errors.Password}
+        helperText = {formik.touched.Password && formik.errors.Password ? formik.errors.Password : ""}
         />
         
       <TextField
