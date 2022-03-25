@@ -5,6 +5,11 @@ import { useHistory } from "react-router-dom";
 import { API } from "./global";
 import { useFormik } from "formik"; 
 import * as yup from "yup";
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+
 
 
 export const userdetailValidationSchema = yup.object({
@@ -116,35 +121,58 @@ export function AddUserDetail() {
          
         
       <TextField
-        type ="email"
+        type ="text"
         label="Email"
         id="email"
-        name="email"
-        visibility="true"
+        name="Email"
+        variant="outlined" 
         //placeholder = "Rating" 
         onChange={formik.handleChange}
         value={formik.values.Email}
         onBlur = {formik.handleBlur}
-        variant="outlined" 
         error = {formik.touched.Email && formik.errors.Email}
         helperText = {formik.touched.Email && formik.errors.Email ? formik.errors.Email : ""}
          />
        
-      <TextField
-        type= "password"
+      {/* <TextField
+        type= "text"
         label="Password"
         id="password"
-        name="password"
+        name="Password"
+        variant="outlined"
         // placeholder = "Summary"
         onChange={formik.handleChange}
-        value={formik.values.Password}
+        value={formik.values.password}
         onBlur = {formik.handleBlur}
-        variant="outlined"
-        error = {formik.touched.Password && formik.errors.Password}
-        helperText = {formik.touched.Password && formik.errors.Password ? formik.errors.Password : ""}
+        error = {formik.touched.password && formik.errors.password}
+        helperText = {formik.touched.password && formik.errors.password ? formik.errors.password : ""}
         />
-        
-      <TextField
+
+        <input type="email" name="email" placeholder="Enter the Email" /> */}
+
+        <input type="password" name="Password" placeholder="Enter the password" />
+        <select id="TypeOfuser" name="TyprOfuser">
+          <option value="Admin">Admin</option>
+          <option value="Manager">Manager</option>
+          <option value="Employee">Employee</option>
+        </select>
+
+        {/* <InputLabel id="TypeOfuser">Type Of User</InputLabel>
+        <Select
+          labelId="TypeOfuser"
+          id="TypeOfuser"
+          value={formik.values.TypeOfuser}
+          label="TypeOfuser"
+          variant="outlined"
+          onChange={formik.handleChange}
+        >
+          <MenuItem value={"Admin"}>Admin</MenuItem>
+          <MenuItem value={"Manager"}>Manager</MenuItem>
+          <MenuItem value={"Employee"}>Employee</MenuItem>
+        </Select> */}
+
+
+      {/* <TextField
         type="text"
         label="TypeOfuser"
         id="TypeOfuser"
@@ -156,12 +184,12 @@ export function AddUserDetail() {
         variant="outlined" 
         error = {formik.touched.TypeOfuser && formik.errors.TypeOfuser}
         helperText = {formik.touched.TypeOfuser && formik.errors.TypeOfuser ? formik.errors.TypeOfuser : ""}
-        />
+        /> */}
       {/* <button onClick = {() => console.log(name, poster, rating, summary)}>Add Movie</button> */}
       {/* Copy the movieList and add new movie to it */}
      {/* <Button onClick = {() => addMovie()} variant = "contained"> */}
      <Button type="submit" variant = "contained">
-        Add UserDetail 
+        Add User Detail 
       </Button>
   </form>
 );

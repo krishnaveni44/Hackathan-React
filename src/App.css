@@ -216,7 +216,7 @@ body {
   font-size: 20px;
 }
 
-.add-movie-form{
+.add-userdetail-form{
   display: flex;
   flex-direction: column;
   gap: 10px;
