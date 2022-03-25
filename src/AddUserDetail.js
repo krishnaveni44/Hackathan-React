@@ -6,25 +6,26 @@ import { API } from "./global";
 import { useFormik } from "formik"; 
 import * as yup from "yup";
 
-export const movieValidationSchema = yup.object({
-  name: yup.string().required("Why not fill this name? 😀"),
-  poster: yup
+
+export const userdetailValidationSchema = yup.object({
+  FirstName: yup.string().required("Why not fill this FirstName? 😀"),
+  LastName: yup
       .string()
-      .required("Why not fill this poster? 😀")
+      .required("Why not fill this LastName? 😀")
       .min(4, "Need a longer poster 😀"),
-  rating: yup.number().min(0).max(10).required("Why not fill this rating? 😀"),
-  summary: yup
+  Email: yup.string().required("Why not fill this  Email? 😀"),
+  Password: yup
   .string()
-  .required("Why not fill this summary 😀")
-  .min(20, "Need a longer summary 😀"),
-  trailer: yup
+  .required("Why not fill this Password 😀")
+  .min(8, "Need a longer Password 😀"),
+  TypeOfuser: yup
   .string()
-  .required("Why not fill this trailer? 😀")
-  .min(4, "Need a longer trailer 😀"),
+  .required("Why not fill this TypeOfuser? 😀")
+  .min(4, "Need a longer TypeOfuser 😀"),
 });
 
 // export function AddMovie({ movieList, setMovieList }) {
-export function AddMovie() {
+export function AddUserDetail() {
   // const [name, setName] = useState("");
   // const [poster, setPoster] = useState("");
   // const [rating, setRating] = useState("");
@@ -32,24 +33,30 @@ export function AddMovie() {
   // const [trailer, setTrailer] = useState("");
   const history = useHistory();
 
+
+  // FirstName: "",
+  // LastName: "",
+  // Email: "",
+  // Password: "",
+  // TypeOfuser: "", 
   const formik = useFormik({
     initialValues: {
-      name: "",
-      poster: "",
-      rating: "",
-      summary: "",
-      trailer: "", 
+     FirstName: "",
+     LastName: "",
+      Email: "",
+    Password: "",
+    TypeOfuser: "",
     },
-     validationSchema: movieValidationSchema,
-    onSubmit: (newMovie) => {
+     validationSchema: userdetailValidationSchema,
+    onSubmit: (newuserdetail) => {
       // console.log("onSubmit", newMovie);
-      addMovie(newMovie);
+      adduserdetail(newuserdetail);
     },
   }); 
 // https://cdn.123telugu.com/content/wp-content/uploads/2022/02/FIR-2.jpg
 <iframe width="1280" height="720" src="https://www.youtube.com/embed/eVKIjoK7FnM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-  const addMovie = (newMovie) => { 
+  const adduserdetail = (newuserdetail) => { 
     // const newMovie = {  
     //    name: name,
     //    poster: poster,
@@ -61,29 +68,29 @@ export function AddMovie() {
            // 2. body - JSON data
            // 3. headers - JSON data
            // After POST is complete ->  movie to /movies
-       console.log("onSubmit", newMovie);
-       fetch(`${API}/movies/`, {
+       console.log("onSubmit", newuserdetail);
+       fetch(`${API}/userdetails/`, {
        method: "POST",
-       body: JSON.stringify(newMovie),
+       body: JSON.stringify(newuserdetail),
        headers: {
          "Content-Type": "application/json", 
           },   
-          }).then(() => history.push("/movies"));
+          }).then(() => history.push("/userdetails"));
           // setMovieList([...movieList, newMovie]); 
         };
    return (
-    <form onSubmit = {formik.handleSubmit} className="add-movie-form">
+    <form onSubmit = {formik.handleSubmit} className="add-userdetail-form">
       <TextField
-        label="Name"
-        name="name"
+        label="FirstName"
+        name="firstname"
         id="name"        
         type="text"
         variant="outlined"
         onChange={formik.handleChange}
-        value={formik.values.name}
+        value={formik.values.firstname}
         onBlur = {formik.handleBlur}
-        error = {formik.touched.name && formik.errors.name}
-        helperText = {formik.touched.name && formik.errors.name ? formik.errors.name : ""}
+        error = {formik.touched.firstname && formik.errors.firstname}
+        helperText = {formik.touched.firstname && formik.errors.firstname ? formik.errors.firstname : ""}
          // onChange={(event) => setName(event.target.value)}    
         />
               {/* <input
@@ -93,66 +100,67 @@ export function AddMovie() {
               /> */}
       <TextField
         type = "text"
-        label="Poster"
-        id = "poster"
-        name="poster"
+        label="LastName"
+        id = "name"
+        name="lastname"
         variant="outlined"
         // placeholder = "Poster"
         onChange={formik.handleChange}
-        value={formik.values.poster}
+        value={formik.values.lastname}
         onBlur = {formik.handleBlur}
-        error = {formik.touched.poster && formik.errors.poster}
+        error = {formik.touched.lastname && formik.errors.lastname}
         helperText = {
-          formik.touched.poster && formik.errors.poster ? formik.errors.poster : ""
+          formik.touched.lastname && formik.errors.lastname ? formik.errors.lastname : ""
         }
          />
-      
+         
+        
       <TextField
         text = "text"
-        label="Rating"
-        id="rating"
-        name="rating"
+        label="Email"
+        id="email"
+        name="email"
         //placeholder = "Rating" 
         onChange={formik.handleChange}
-        value={formik.values.rating}
+        value={formik.values.email}
         onBlur = {formik.handleBlur}
         variant="outlined" 
-        error = {formik.touched.rating && formik.errors.rating}
-        helperText = {formik.touched.rating && formik.errors.rating ? formik.errors.rating : ""}
+        error = {formik.touched.email && formik.errors.email}
+        helperText = {formik.touched.email && formik.errors.email ? formik.errors.email : ""}
          />
        
       <TextField
         type= "text"
-        label="Summary"
-        id="summary"
-        name="summary"
+        label="Password"
+        id="password"
+        name="password"
         // placeholder = "Summary"
         onChange={formik.handleChange}
-        value={formik.values.summary}
+        value={formik.values.password}
         onBlur = {formik.handleBlur}
         variant="outlined"
-        error = {formik.touched.summary && formik.errors.summary}
-        helperText = {formik.touched.summary && formik.errors.summary ? formik.errors.summary : ""}
+        error = {formik.touched.password && formik.errors.password}
+        helperText = {formik.touched.password && formik.errors.password ? formik.errors.password : ""}
         />
         
       <TextField
         type="text"
-        label="Trailer"
-        id="trailer"
-        name="trailer"
+        label="TypeOfuser"
+        id="TypeOfuser"
+        name="TypeOfuser"
         onChange={formik.handleChange}
-        value={formik.values.trailer}
+        value={formik.values.TypeOfuser}
         onBlur = {formik.handleBlur}
         // onChange={(event) => setTrailer(event.target.value)}
         variant="outlined" 
-        error = {formik.touched.trailer && formik.errors.trailer}
-        helperText = {formik.touched.trailer && formik.errors.trailer ? formik.errors.trailer : ""}
+        error = {formik.touched.TypeOfuser && formik.errors.TypeOfuser}
+        helperText = {formik.touched.TypeOfuser && formik.errors.TypeOfuser ? formik.errors.TypeOfuser : ""}
         />
       {/* <button onClick = {() => console.log(name, poster, rating, summary)}>Add Movie</button> */}
       {/* Copy the movieList and add new movie to it */}
      {/* <Button onClick = {() => addMovie()} variant = "contained"> */}
      <Button type="submit" variant = "contained">
-        Add Movie
+        Add UserDetail 
       </Button>
   </form>
 );

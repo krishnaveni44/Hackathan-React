@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import { AddMovie } from "./AddMovie";
+import { AddUserDetail } from "./AddUserDetail";
 
 // const API = "http://localhost:4000";
 // const API = "https://krishnavenimovieapp.herokuapp.com";
@@ -42,7 +42,7 @@ export default function App() {
  
   return(
   <div className="App">
-      <AddMovie />
+      <AddUserDetail />
   </div>
 );
 }
