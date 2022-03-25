@@ -116,10 +116,11 @@ export function AddUserDetail() {
          
         
       <TextField
-        type = "email"
+        type ="email"
         label="Email"
         id="email"
         name="email"
+        visibility="true"
         //placeholder = "Rating" 
         onChange={formik.handleChange}
         value={formik.values.Email}
