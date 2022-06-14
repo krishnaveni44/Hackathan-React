@@ -37,13 +37,6 @@ export function AddUserDetail() {
   // const [summary, setSummary] = useState("");
   // const [trailer, setTrailer] = useState("");
   const history = useHistory();
-
-
-  // FirstName: "",
-  // LastName: "",
-  // Email: "",
-  // Password: "",
-  // TypeOfuser: "", 
   const formik = useFormik({
     initialValues: {
      FirstName: "",
@@ -61,19 +54,11 @@ export function AddUserDetail() {
 // https://cdn.123telugu.com/content/wp-content/uploads/2022/02/FIR-2.jpg
 <iframe width="1280" height="720" src="https://www.youtube.com/embed/eVKIjoK7FnM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+
   const adduserdetail = (newuserdetail) => { 
-    // const newMovie = {  
-    //    name: name,
-    //    poster: poster,
-    //    rating: rating,
-    //    summary: summary,
-    //    trailer: trailer, 
-    //    };
-           // 1. method must be POST  
-           // 2. body - JSON data
-           // 3. headers - JSON data
-           // After POST is complete ->  movie to /movies
+   
        console.log("onSubmit", newuserdetail);
+
        fetch(`${API}/userdetails/`, {
        method: "POST",
        body: JSON.stringify(newuserdetail),
@@ -81,7 +66,7 @@ export function AddUserDetail() {
          "Content-Type": "application/json", 
           },   
           }).then(() => history.push("/userdetails"));
-          // setMovieList([...movieList, newMovie]); 
+         
         };
    return (
     <form onSubmit = {formik.handleSubmit} className="add-userdetail-form">
