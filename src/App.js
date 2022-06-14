@@ -3,12 +3,12 @@ import "./App.css";
 import { AddUserDetail } from "./AddUserDetail";
 
 // const API = "http://localhost:4000";
-// const API = "https://krishnavenimovieapp.herokuapp.com";
-
+const API = "https://krishnavenimovieapp.herokuapp.com";
 
 
 export default function App() { 
-  //const [username, setusername] = useState([]);
+ 
+ // const [FirstName, setFirstName] = useState("");
   const userdetails = [ 
     { 
      "FirstName": "Krishna",
@@ -39,89 +39,117 @@ export default function App() {
           "TypeOfuser": "Employee"  
           }
     ];
- 
+    // useEffect(() => { 
+    //    fetch(`${API}/userdetails`,{
+    //     headers: {
+    //       "x-auth-token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzhiMDM4NjAwZDdjYjUyYmRiZTVkMSIsImlhdCI6MTY0ODAxOTUwMH0.Lx5PUM_ngmBTqpsw_vp5is64TC1X53vzTYH-JohPLy0"
+    //     }
+    //    })
+    //    .then((data) => data.json())
+    //     .then((usr) => setuserdetails(usr));
+    //     }, []);
+
+       
   return(
   <div className="App">
-      <AddUserDetail />
+      <AddUserDetail /> 
   </div>
 );
 }
-
-
-
-
-
-
-// export default function App() {
-//   const      [user, setUser] = useState({});
-//   const      [formErrors, setFormErrors] = useState({});
-            
-//     return (
-//       <div className='App container col-6'>
-//         <h3>Customer Relationship Management(CMR)</h3>
-//         <form>
-//           <div className='row'>
-//             <div className='col-md-6'>
-//               <label htmlFor='firstName'>First Name</label>
-//               <input
-//                 className='form-control'
-//                 placeholder='First Name'
-//                 type='text'
-//                 name='firstName'
-//                 />
-//             </div>
-//             <div className='col-md-6'>
-//               <label htmlFor='lastName'>Last Name</label>
-//               <input
-//                 className='form-control'
-//                 placeholder='Last Name'
-//                 type='text'
-//                 name='lastName'
-//                 />
-//             </div>
-//           </div>
  
-//           <div className='mb-3'>
-//             <label htmlFor='email'>Email</label>
-//             <input
-//               className='form-control'
-//               placeholder='Email'
-//               type='email'
-//               name='email'
-//               />
-//           </div>
-//           <div className='mb-3'>
-//             <label htmlFor='password'>Password</label>
-//             <input
-//               className='form-control'
-//               placeholder='Password'
-//               type='password'
-//               name='password'
-//              />
-//           </div>
-//           <div className='mb-3'>
-//             <label htmlFor='confirmpassword'>Confirm Password</label>
-//             <input
-//               className='form-control'
-//               placeholder='Password'
-//               type='password'
-//               name='confirmpassword'
-//              />
-//           </div>
-//           <div className='mb-3'>
-//             <button type='submit'>Create Account</button>
-//           </div>
-//           {/* <div>
-//               <link to="/forgot password">Forgot Password</link>
-//               <route path="/forgot password">
-
-//               </route>
-//           </div> */}
-//         </form>
-//       </div>
-//     );
+ function UserDetail({ FirstName,LastName,Email,Password,TypeOfuser }) {
+ 
+  return (
+    <div className="userdetail-container">
+        <div className="userdetail-specs">
+        <h2> User Details</h2>
+        <h3>{FirstName}</h3>
+        <h3>{LastName}</h3>
+        <h3>{Email}</h3>
+        <h3>{Password}</h3>
+        <h3>{TypeOfuser}</h3>
+       </div>
+    </div>    
+     );
         
-// }
+ }
+
+
+
+
+
+
+//  const [FirstName, setFirstName] = useState("");
+//  const [LastName, setLastName] = useState("");
+//   const [Email, setEmail] = useState("");
+//   const [Password, setPassword] = useState(""); 
+//   const [TypeOfuser, setTypeOfuser] = useState(""); 
+
+{/* <div className="add-userdetail-form">
+<form>
+  <input
+     className='form-control'
+     placeholder='First Name'
+     type='text'
+     name='FirstName'
+     onChange={event => setFirstName(event.target.value)}
+     />
+  <input
+     className='form-control'
+     placeholder='Last Name'
+     type='text'
+     name='LastName'
+     onChange={event => setLastName(event.target.value)}
+    />
+  <input
+     className='form-control'
+     placeholder='Email'
+     type='email'
+     name='Email'
+    onChange={event => setEmail(event.target.value)}
+     />
+  <input
+    className='form-control'
+    placeholder='Password'
+    type='password'
+    name='Password'
+    onChange={event => setPassword(event.target.value)}
+    />
+     <input
+    className='form-control'
+    placeholder='TypeOfuser'
+    type='TypeOfuser'
+    name='TypeOfuser'
+    onChange={event => setTypeOfuser(event.target.value)}
+    />
+ {/* <select id="TypeOfuser" name="TyprOfuser" >
+   <option value="Admin">Admin</option>
+   <option value="Manager">Manager</option>
+   <option value="Employee">Employee</option>
+ </select> */}
+//  <div className='mb-3'>
+//    <button type='submit' onSubmit = {() => 
+//   console.log(FirstName,LastName,Email,Password,TypeOfuser)} >
+//     Add User Detail </button>
+//  </div>
+//  </form>
+// </div>
+
+//  <div className="userdetail-list">
+
+//     {userdetails.map(({ FirstName,LastName,Email,Password,TypeOfuser }) =>
+//      <UserDetail 
+//      FirstName={FirstName} 
+//      LastName={LastName}
+//      Email={Email}
+//      Password={Password}
+//      TypeOfuser={TypeOfuser}
+//      /> )}
+//     </div> */}
+
+
+
+
 
 // function Forgotpassword(){
 
