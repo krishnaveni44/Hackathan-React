@@ -179,17 +179,17 @@ body {
   object-fit: cover;
   }
 
-  .movie-container{
+  .userdetail-container{
    width: 340px;
     height: min-content;
   }
-   .movie-specs{
+   .userdetail-specs{
      display: flex;
      align-items: center;
      justify-content: space-between;
    }
 
-   .movie-name{
+   .userdetail-name{
      font-size: 24px;
      margin: 0;
      }
@@ -200,7 +200,7 @@ body {
   .movie-rating{
     font-size: 18px;
   }
- .movie-list{
+ .userdetail-list{
    display: flex;
    gap: 16px;
    flex-wrap: wrap;
